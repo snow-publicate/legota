@@ -142,7 +142,8 @@ namespace Unity.LEGO.Behaviours.Actions
                     var worldPivot = transform.position + transform.TransformVector(m_BrickPivotOffset);
                     foreach (var brick in m_ScopedBricks)
                     {
-                        brick.transform.position += delta;
+                        // Toggle delta
+                        // brick.transform.position += delta;
                         brick.transform.RotateAround(worldPivot, Vector3.up, k_AngularSpeed * Time.deltaTime);
                     }
                     m_Offset += delta;
