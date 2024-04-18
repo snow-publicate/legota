@@ -7,6 +7,51 @@ namespace Unity.LEGO.Minifig
 
     public class MinifigController : MonoBehaviour
     {
+        // Custom
+        public GameObject TouchJumpButton;
+        public bool touchOn;
+        float customVertical;
+        float customHorizontal;
+        public bool jumpTry;
+
+        public void customVerticalMoveForward()
+        {
+            if (customVertical < 1f)
+            {
+                customVertical += .5f;
+            }
+        }
+        public void customVerticalMoveStop()
+        {
+            customVertical = 0f;
+        }
+        public void customVerticalMoveBackword()
+        {
+            if (customVertical > -1f)
+            {
+                customVertical -= .5f;
+            }
+        }
+        public void customHorizontalMoveRight()
+        {
+            if (customHorizontal < 1f)
+            {
+                customHorizontal += .5f;
+            }
+        }
+        public void customHorizontalMoveStop()
+        {
+            customHorizontal = 0f;
+        }
+        public void customHorizontalMoveLeft()
+        {
+            if (customHorizontal > -1f)
+            {
+                customHorizontal -= .5f;
+            }
+        }
+        //
+
         // Constants.
         const float stickyTime = 0.05f;
         const float stickyForce = 9.6f;
@@ -248,6 +293,9 @@ namespace Unity.LEGO.Minifig
                         {
                             // Calculate speed.
                             var targetSpeed = Input.GetAxisRaw("Vertical");
+                            // CustomMove
+                            if (touchOn) targetSpeed = customVertical;
+                            //
                             targetSpeed *= targetSpeed > 0 ? maxForwardSpeed : maxBackwardSpeed;
                             if (targetSpeed > speed)
                             {
@@ -260,6 +308,9 @@ namespace Unity.LEGO.Minifig
 
                             // Calculate rotation speed.
                             var targetRotateSpeed = Input.GetAxisRaw("Horizontal");
+                            // CustomMove
+                            if (touchOn) targetRotateSpeed = customHorizontal;
+                            //
                             targetRotateSpeed *= maxRotateSpeed;
                             if (targetRotateSpeed > rotateSpeed)
                             {
@@ -292,6 +343,11 @@ namespace Unity.LEGO.Minifig
 
                             var targetSpeed = right * Input.GetAxisRaw("Horizontal");
                             targetSpeed += forward * Input.GetAxisRaw("Vertical");
+                            // CustomMove
+                            if (touchOn) targetSpeed = right * customHorizontal;
+                            if (touchOn) targetSpeed += forward * customVertical;
+                            //
+
                             if (targetSpeed.sqrMagnitude > 0.0f)
                             {
                                 targetSpeed.Normalize();
@@ -347,7 +403,11 @@ namespace Unity.LEGO.Minifig
                 }
 
                 // Check if player is jumping.
-                if (Input.GetButtonDown("Jump"))
+                // Custom
+                if (!touchOn) jumpTry = Input.GetButtonDown("Jump");
+                // Debug.Log(jumpTry);
+                //
+                if (jumpTry)
                 {
                     if (!airborne || jumpsInAir > 0)
                     {
@@ -377,7 +437,8 @@ namespace Unity.LEGO.Minifig
                 }
 
                 // Cancel special.
-                cancelSpecial = !Mathf.Approximately(Input.GetAxis("Vertical"), 0) || !Mathf.Approximately(Input.GetAxis("Horizontal"), 0) || Input.GetButtonDown("Jump");
+                // cancelSpecial = !Mathf.Approximately(Input.GetAxis("Vertical"), 0) || !Mathf.Approximately(Input.GetAxis("Horizontal"), 0) || Input.GetButtonDown("Jump");
+                cancelSpecial = !Mathf.Approximately(Input.GetAxis("Vertical"), 0) || !Mathf.Approximately(Input.GetAxis("Horizontal"), 0) || jumpTry;
 
             }
             else
