@@ -20616,10 +20616,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -20627,7 +20627,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Down
+  m_Text: 'Down
+
+    (S)'
 --- !u!222 &596876241
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21210,7 +21212,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -21221,7 +21223,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Right
+  m_Text: 'Right
+
+    (D)'
 --- !u!222 &626959982
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -36346,12 +36350,12 @@ PrefabInstance:
     - target: {fileID: 8688045825621041843, guid: 5a06dfbfd61f30d43b10055b6f2b51cc,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000022718249
+      value: 0.000000022718249
       objectReference: {fileID: 0}
     - target: {fileID: 8688045825621041843, guid: 5a06dfbfd61f30d43b10055b6f2b51cc,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00000000871781
+      value: -0.000000008717809
       objectReference: {fileID: 0}
     - target: {fileID: 8688045825621041843, guid: 5a06dfbfd61f30d43b10055b6f2b51cc,
         type: 3}
@@ -38421,7 +38425,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -38432,7 +38436,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Jump
+  m_Text: 'Jump
+
+    (Space)'
 --- !u!222 &1230209404
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -39219,7 +39225,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -39230,7 +39236,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Left
+  m_Text: 'Left
+
+    (A)'
 --- !u!222 &1345428882
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -41015,7 +41023,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -41026,7 +41034,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Up
+  m_Text: 'Up
+
+    (W)'
 --- !u!222 &1438528735
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -59004,7 +59014,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: 0.35826376, y: -0.000000022718249, z: 0.00000000871781, w: 0.93362045}
+  m_LocalRotation: {x: 0.35826376, y: 0.000000022718249, z: -0.000000008717809, w: 0.93362045}
   m_LocalPosition: {x: -5.43, y: 13.93, z: -23.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

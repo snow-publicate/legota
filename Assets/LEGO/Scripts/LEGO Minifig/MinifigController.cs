@@ -13,6 +13,7 @@ namespace Unity.LEGO.Minifig
         float customVertical;
         float customHorizontal;
         public bool jumpTry;
+        bool jumpTryMix;
 
         public void customVerticalMoveForward()
         {
@@ -292,9 +293,10 @@ namespace Unity.LEGO.Minifig
                     case InputType.Tank:
                         {
                             // Calculate speed.
-                            var targetSpeed = Input.GetAxisRaw("Vertical");
+                            // var targetSpeed = Input.GetAxisRaw("Vertical");
+                            var targetSpeed = Input.GetAxisRaw("Vertical") + customVertical;
                             // CustomMove
-                            if (touchOn) targetSpeed = customVertical;
+                            // if (touchOn) targetSpeed = customVertical;
                             //
                             targetSpeed *= targetSpeed > 0 ? maxForwardSpeed : maxBackwardSpeed;
                             if (targetSpeed > speed)
@@ -307,9 +309,10 @@ namespace Unity.LEGO.Minifig
                             }
 
                             // Calculate rotation speed.
-                            var targetRotateSpeed = Input.GetAxisRaw("Horizontal");
+                            // var targetRotateSpeed = Input.GetAxisRaw("Horizontal");
+                            var targetRotateSpeed = Input.GetAxisRaw("Horizontal") + customHorizontal;
                             // CustomMove
-                            if (touchOn) targetRotateSpeed = customHorizontal;
+                            // if (touchOn) targetRotateSpeed = customHorizontal;
                             //
                             targetRotateSpeed *= maxRotateSpeed;
                             if (targetRotateSpeed > rotateSpeed)
@@ -341,11 +344,11 @@ namespace Unity.LEGO.Minifig
                                 forward.Normalize();
                             }
 
-                            var targetSpeed = right * Input.GetAxisRaw("Horizontal");
-                            targetSpeed += forward * Input.GetAxisRaw("Vertical");
+                            var targetSpeed = right * (Input.GetAxisRaw("Horizontal") + customHorizontal);
+                            targetSpeed += forward * (Input.GetAxisRaw("Vertical") + customVertical);
                             // CustomMove
-                            if (touchOn) targetSpeed = right * customHorizontal;
-                            if (touchOn) targetSpeed += forward * customVertical;
+                            // if (touchOn) targetSpeed = right * customHorizontal;
+                            // if (touchOn) targetSpeed += forward * customVertical;
                             //
 
                             if (targetSpeed.sqrMagnitude > 0.0f)
@@ -404,10 +407,10 @@ namespace Unity.LEGO.Minifig
 
                 // Check if player is jumping.
                 // Custom
-                if (!touchOn) jumpTry = Input.GetButtonDown("Jump");
-                // Debug.Log(jumpTry);
+                // if (!touchOn) jumpTry = Input.GetButtonDown("Jump");
+                jumpTryMix = Input.GetButtonDown("Jump") || jumpTry;
                 //
-                if (jumpTry)
+                if (jumpTryMix)
                 {
                     if (!airborne || jumpsInAir > 0)
                     {
